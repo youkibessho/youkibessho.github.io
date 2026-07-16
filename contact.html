@@ -33,13 +33,31 @@
   <h1 class="page-title">Contact</h1>
 
   <section class="contact-block">
-    <p>演奏のご依頼、CD・DVDに関するお問い合わせなどは、お問い合わせフォーム（準備中）よりお願いいたします。</p>
+    <p>演奏のご依頼、CD・DVD、その他のお問い合わせは、下記フォームよりご連絡ください。</p>
+
+    <form class="contact-form" action="https://formspree.io/f/xaqrqvel" method="POST">
+      <label for="name">Name / お名前</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="subject">Subject / 件名</label>
+      <input type="text" id="subject" name="subject">
+
+      <label for="message">Message / お問い合わせ内容</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+
+    <p class="contact-note">送信いただいた内容は別所ユウキ本人が確認いたします。</p>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <p>Copyright &copy; Youki Bessho, All rights reserved.&emsp;Photo: <a href="http://studiokeya.com/" target="_blank" rel="noopener">OKEYA INC.</a></p>
+  <p>Copyright &copy; Youki Bessho, All rights reserved.</p>
 </footer>
 
 </body>

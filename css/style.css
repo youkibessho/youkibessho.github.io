@@ -17,6 +17,18 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* ---------- dark pages (Top / Concept) ---------- */
+
+body.dark {
+  --ink: #e9e6e1;
+  --ink-soft: #b3afa8;
+  --ink-faint: #7f7c76;
+  --paper: #000000;
+  --paper-dim: #121212;
+  --line: #262523;
+  --accent: #c9a35f;
+}
+
 html { font-size: 16px; }
 
 body {
@@ -150,6 +162,168 @@ a { color: var(--accent); }
   letter-spacing: 0.2em;
   color: var(--ink-faint);
   padding: 0.6rem 1rem 0;
+}
+
+/* ---------- dark hero (Top v2) ---------- */
+
+.hero-dark {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 2rem 2rem;
+  gap: 2rem;
+}
+
+.hero-dark .hero-portrait {
+  order: 2;
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+}
+
+.hero-dark .hero-portrait img {
+  width: 100%;
+  display: block;
+}
+
+/* 表情を和らげる右側のシャドウ（CSSオーバーレイ・元画像非破壊。強さは0.55、範囲は52%で調整可） */
+.hero-dark .hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 52%);
+  pointer-events: none;
+}
+
+.hero-dark .hero-text { order: 1; }
+
+.hero-dark .hero-name-latin {
+  font-family: var(--serif-latin);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.hero-dark .hero-name-jp {
+  font-size: 1rem;
+  letter-spacing: 0.6em;
+  color: var(--ink-soft);
+  margin-top: 1rem;
+}
+
+.hero-dark .hero-role {
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--ink-faint);
+  margin-top: 0.6rem;
+}
+
+.hero-dark .hero-statement {
+  margin-top: 3rem;
+  font-size: 1.25rem;
+  line-height: 2.1;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.hero-dark .hero-statement-en {
+  font-family: var(--serif-latin);
+  font-style: italic;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  margin-top: 1.2rem;
+}
+
+/* ---------- tour-style news ---------- */
+
+.tour { max-width: 760px; margin: 0 auto; padding: 4rem 1.4rem 5rem; }
+
+.tour h2 {
+  font-family: var(--serif-latin);
+  font-weight: 400;
+  font-size: 0.9rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.tour-item {
+  display: flex;
+  align-items: baseline;
+  gap: 2rem;
+  padding: 1.1rem 0.2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.tour-item:first-of-type { border-top: 1px solid var(--line); }
+
+.tour-date {
+  font-family: var(--serif-latin);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+
+.tour-place {
+  font-family: var(--serif-latin);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--accent);
+}
+
+.tour-title {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- collapsible tracklists ---------- */
+
+details.tracks { margin-top: 1.3rem; }
+
+details.tracks summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif-latin);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+details.tracks summary::-webkit-details-marker { display: none; }
+
+details.tracks summary::after { content: " +"; }
+
+details.tracks[open] summary::after { content: " −"; }
+
+@media (max-width: 760px) {
+  .hero-dark {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 2.2rem 1.4rem;
+    gap: 2.4rem;
+  }
+  .hero-dark .hero-portrait { order: 1; justify-self: center; max-width: 420px; }
+  .hero-dark .hero-text { order: 2; }
+  .tour-item { flex-wrap: wrap; gap: 0.4rem 1.2rem; }
+  .tour-title { white-space: normal; }
 }
 
 .pillars {
@@ -349,6 +523,67 @@ a { color: var(--accent); }
   max-width: 620px;
   margin: 0 auto;
   text-align: center;
+}
+
+.contact-form {
+  max-width: 480px;
+  margin: 2.6rem auto 0;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  font-family: var(--serif-latin);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.contact-form label:first-child { margin-top: 0; }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  font-family: var(--serif-jp);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: none;
+  border-bottom: 1px solid var(--line);
+  padding: 0.5rem 0.1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent);
+}
+
+.contact-form textarea { resize: vertical; min-height: 8rem; }
+
+.contact-form button {
+  margin-top: 2.2rem;
+  font-family: var(--serif-latin);
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink-faint);
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.contact-form button:hover { border-color: var(--accent); color: var(--accent); }
+
+.contact-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin-top: 1.4rem;
 }
 
 /* ---------- footer ---------- */
