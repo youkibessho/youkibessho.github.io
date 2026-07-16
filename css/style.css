@@ -217,6 +217,29 @@ a { color: var(--accent); }
   border-top: 1px solid var(--line);
 }
 
+/* ---------- concept ---------- */
+
+.concept {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.concept .lead {
+  font-size: 1.3rem;
+  line-height: 1.85;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+
+.concept .lead.latin { font-style: italic; }
+
+.concept-shop {
+  margin-top: 1.6rem;
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+}
+
 .profile-lang p { text-align: justify; }
 
 .profile-lang .latin p { line-height: 1.75; }
