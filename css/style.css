@@ -385,6 +385,19 @@ details.tracks[open] summary::after { content: " −"; }
 
 /* ---------- profile ---------- */
 
+.lang-anchor {
+  text-align: center;
+  font-family: var(--serif-latin);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  margin: -1.6rem 0 2.8rem;
+}
+
+.lang-anchor a { color: var(--ink-faint); text-decoration: none; }
+
+.lang-anchor a:hover { color: var(--accent); }
+
 .profile-lang + .profile-lang {
   margin-top: 3.2rem;
   padding-top: 3.2rem;
