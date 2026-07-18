@@ -226,6 +226,15 @@ a { color: var(--accent); }
   margin-top: 0.6rem;
 }
 
+.hero-dark .hero-role-en {
+  font-family: var(--serif-latin);
+  font-style: italic;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-top: 0.3rem;
+}
+
 .hero-dark .hero-statement {
   margin-top: 3rem;
   font-size: 1.25rem;
